@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from products import products
+from mockData import products
 app = FastAPI()
 
 @app.get("/")
