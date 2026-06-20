@@ -4,8 +4,7 @@ import sys
 from config import (
     SCREEN_WIDTH, SCREEN_HEIGHT, FPS, CELL_SIZE, GRID_COLS, GRID_ROWS,
     BG_TOP, BG_BOTTOM, DIFFICULTIES, SEGMENT_RADIUS,
-    generate_gradient, load_high_scores, save_high_scores, hsv_to_rgb,
-    draw_rounded_rect
+    generate_gradient, load_high_scores, save_high_scores, hsv_to_rgb
 )
 from snake import Snake
 from food import Food
