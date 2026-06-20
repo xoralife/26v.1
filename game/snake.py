@@ -75,10 +75,6 @@ class Snake:
             else:
                 self.grid_positions.pop()
 
-            self.food_eaten += 1
-            if self.food_eaten % SPEED_INTERVAL == 0:
-                self.speed += SPEED_INCREMENT
-
             moved_this_frame = True
             self.moved = True
 
