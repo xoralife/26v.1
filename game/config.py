@@ -39,27 +39,28 @@ BG_PARTICLE_COUNT = 60
 BG_WAVE_COUNT = 4
 
 FONT_NAME = 'Segoe UI'
-FONT_SIZE_SMALL = 18
-FONT_SIZE_MEDIUM = 24
-FONT_SIZE_LARGE = 48
-FONT_SIZE_XLARGE = 72
-FONT_SIZE_TITLE = 96
+FONT_SIZE_SMALL = 22
+FONT_SIZE_MEDIUM = 34
+FONT_SIZE_LARGE = 56
+FONT_SIZE_XLARGE = 84
+FONT_SIZE_TITLE = 110
 
-PANEL_BG_COLOR = (10, 10, 15, 180)
-PANEL_BORDER_COLOR = (255, 255, 255, 25)
-PANEL_HIGHLIGHT_COLOR = (255, 255, 255, 15)
-PANEL_SHADOW_COLOR = (0, 0, 0, 60)
+PANEL_BG_COLOR = (8, 8, 14, 200)
+PANEL_BORDER_COLOR = (255, 255, 255, 30)
+PANEL_HIGHLIGHT_COLOR = (255, 255, 255, 12)
+PANEL_SHADOW_COLOR = (0, 0, 0, 80)
 PANEL_RADIUS = 16
 
-BUTTON_BG = (15, 15, 25, 200)
-BUTTON_BORDER = (255, 255, 255, 40)
-BUTTON_HOVER_BORDER = (0, 200, 255, 200)
-BUTTON_HOVER_BG = (20, 20, 35, 220)
-BUTTON_RADIUS = 12
+BUTTON_BG = (12, 12, 22, 220)
+BUTTON_BORDER = (255, 255, 255, 50)
+BUTTON_HOVER_BORDER = (0, 220, 255, 220)
+BUTTON_HOVER_BG = (18, 18, 35, 230)
+BUTTON_RADIUS = 14
 
-TEXT_PRIMARY = (220, 220, 240)
-TEXT_SECONDARY = (140, 140, 160)
-TEXT_ACCENT = (0, 200, 255)
+TEXT_PRIMARY = (230, 230, 245)
+TEXT_SECONDARY = (130, 140, 165)
+TEXT_ACCENT = (0, 220, 255)
+TEXT_DIM = (60, 65, 80)
 
 HIGH_SCORE_FILE = Path(__file__).parent / 'highscores.json'
 
@@ -101,31 +102,6 @@ def hsv_to_rgb(h, s, v):
 
 def lerp_color(c1, c2, t):
     return tuple(int(a + (b - a) * t) for a, b in zip(c1, c2))
-
-
-def draw_rounded_rect(surface, rect, color, radius, border_width=0, border_color=None):
-    if len(color) == 4:
-        s = pygame.Surface((rect.width, rect.height), pygame.SRCALPHA)
-    else:
-        s = pygame.Surface((rect.width, rect.height))
-        s.set_colorkey((0, 0, 0))
-
-    r = min(radius, min(rect.width, rect.height) // 2)
-    pygame.draw.rect(s, color, (0, 0, rect.width, rect.height), border_radius=r)
-
-    if border_width > 0 and border_color:
-        pygame.draw.rect(s, border_color, (0, 0, rect.width, rect.height),
-                         border_width, border_radius=r)
-
-    surface.blit(s, rect.topleft)
-
-
-def draw_rounded_rect_alpha(surface, rect, color, radius):
-    s = pygame.Surface((rect.width, rect.height), pygame.SRCALPHA)
-    s.set_alpha(color[3] if len(color) == 4 else 255)
-    r = min(radius, min(rect.width, rect.height) // 2)
-    pygame.draw.rect(s, color[:3], (0, 0, rect.width, rect.height), border_radius=r)
-    surface.blit(s, rect.topleft)
 
 
 def generate_gradient(width, height, top_color, bottom_color):

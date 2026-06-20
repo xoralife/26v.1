@@ -3,8 +3,7 @@ import math
 from collections import deque
 from config import (
     CELL_SIZE, GRID_COLS, GRID_ROWS, SEGMENT_RADIUS,
-    INITIAL_SPEED, SPEED_INCREMENT, SPEED_INTERVAL,
-    hsv_to_rgb
+    INITIAL_SPEED, hsv_to_rgb
 )
 from effects import SnakeGlowEffect
 
@@ -19,7 +18,6 @@ class Snake:
         self.speed = speed if speed else INITIAL_SPEED
         self.base_speed = self.speed
         self.grow_count = 0
-        self.food_eaten = 0
         self.moved = False
         self.time = 0.0
 
@@ -133,7 +131,6 @@ class Snake:
         self.next_direction = (1, 0)
         self.speed = speed if speed else self.base_speed
         self.grow_count = 0
-        self.food_eaten = 0
         self.moved = False
         self.time = 0.0
 
